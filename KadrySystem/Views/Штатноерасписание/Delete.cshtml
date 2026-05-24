@@ -1,0 +1,24 @@
+﻿@model KadrySystem.Models.ШтатноеРасписание
+
+@{
+    ViewData["Title"] = "Удаление позиции";
+}
+
+<div class="form-card">
+    <h1><i class="fas fa-trash-alt me-2" style="color:#e74c3c"></i>Удаление позиции</h1>
+    <hr />
+    <h3>Вы уверены, что хотите удалить эту позицию?</h3>
+    <div class="table-container mt-3">
+        <table class="table">
+            <tr><th>Должность</th><td>@Model.Должность?.Наименование</td></tr>
+            <tr><th>Штатных единиц</th><td>@Model.Количество_штатных_единиц</td></tr>
+            <tr><th>Занятых ставок</th><td>@Model.Количество_занятых_ставок</td></tr>
+            <tr><th>Свободно</th><td>@(Model.Количество_штатных_единиц - Model.Количество_занятых_ставок)</td></tr>
+        </table>
+    </div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Код_позиции" />
+        <button type="submit" class="btn btn-danger"><i class="fas fa-trash me-2"></i>Удалить</button>
+        <a asp-action="Index" class="btn btn-back"><i class="fas fa-arrow-left me-2"></i>Назад</a>
+    </form>
+</div>

@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Главная";
+}
+
+<div class="hero">
+    <h1>Кадровая система</h1>
+    <p>Академический колледж ИМСИТ • Управление персоналом</p>
+</div>
+
+<div class="row g-4 mt-2">
+    <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-users"></i></div>
+            <h5>Сотрудники</h5>
+            <p>Полная информация о персонале: личные данные, должности, подразделения</p>
+            <a asp-controller="Сотрудники" asp-action="Index" class="btn btn-feature">Перейти →</a>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-briefcase"></i></div>
+            <h5>Должности</h5>
+            <p>Справочник должностей с окладами и квалификационными требованиями</p>
+            <a asp-controller="Должности" asp-action="Index" class="btn btn-feature">Перейти →</a>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-building"></i></div>
+            <h5>Подразделения</h5>
+            <p>Структура колледжа: факультеты, кафедры, отделы</p>
+            <a asp-controller="Подразделения" asp-action="Index" class="btn btn-feature">Перейти →</a>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
+            <h5>Приказы</h5>
+            <p>Приёмы, переводы, увольнения — полная история изменений</p>
+            <a asp-controller="Приказы" asp-action="Index" class="btn btn-feature">Перейти →</a>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+            <h5>Штатное расписание</h5>
+            <p>Планирование численности и контроль занятых ставок</p>
+            <a asp-controller="ШтатноеРасписание" asp-action="Index" class="btn btn-feature">Перейти →</a>
+        </div>
+    </div>
+</div>

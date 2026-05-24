@@ -1,0 +1,42 @@
+﻿@model IEnumerable<KadrySystem.Models.ШтатноеРасписание>
+
+@{
+    ViewData["Title"] = "Штатное расписание";
+}
+
+<div class="page-header d-flex justify-content-between align-items-center">
+    <div>
+        <h1><i class="fas fa-chart-line me-2" style="color:#2c5f8a"></i>Штатное расписание</h1>
+        <p>Планирование штатной численности и контроль занятых ставок</p>
+    </div>
+    <a asp-action="Create" class="btn btn-add"><i class="fas fa-plus me-2"></i>Добавить позицию</a>
+</div>
+
+<div class="table-container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Должность</th>
+                <th>Штатных единиц</th>
+                <th>Занятых ставок</th>
+                <th>Свободно</th>
+                <th style="width: 150px">Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><strong>@item.Должность?.Наименование</strong></td>
+                    <td>@item.Количество_штатных_единиц</td>
+                    <td>@item.Количество_занятых_ставок</td>
+                    <td>@(item.Количество_штатных_единиц - item.Количество_занятых_ставок)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Код_позиции" class="btn btn-action btn-edit"><i class="fas fa-edit"></i> Ред.</a>
+                        <a asp-action="Delete" asp-route-id="@item.Код_позиции" class="btn btn-action btn-delete"><i class="fas fa-trash"></i> Уд.</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

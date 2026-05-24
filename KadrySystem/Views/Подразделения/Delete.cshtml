@@ -1,0 +1,22 @@
+﻿@model KadrySystem.Models.Подразделение
+
+@{
+    ViewData["Title"] = "Удаление подразделения";
+}
+
+<div class="form-card">
+    <h1><i class="fas fa-trash-alt me-2" style="color:#e74c3c"></i>Удаление подразделения</h1>
+    <hr />
+    <h3>Вы уверены, что хотите удалить это подразделение?</h3>
+    <div class="table-container mt-3">
+        <table class="table">
+            <tr><th>Наименование</th><td>@Model.Наименование</td></tr>
+            <tr><th>Телефон</th><td>@Model.Телефон</td></tr>
+        </table>
+    </div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Код_подразделения" />
+        <button type="submit" class="btn btn-danger"><i class="fas fa-trash me-2"></i>Удалить</button>
+        <a asp-action="Index" class="btn btn-back"><i class="fas fa-arrow-left me-2"></i>Назад</a>
+    </form>
+</div>

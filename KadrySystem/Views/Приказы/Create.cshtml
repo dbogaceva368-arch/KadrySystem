@@ -1,0 +1,54 @@
+﻿@model KadrySystem.Models.Приказ
+
+@{
+    ViewData["Title"] = "Добавление приказа";
+    var сотрудники = ViewBag.Сотрудники as List<KadrySystem.Models.Сотрудник>;
+}
+
+<div class="form-card">
+    <h1><i class="fas fa-plus-circle me-2"></i>Добавление приказа</h1>
+    <hr />
+    <form asp-action="Create">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Номер приказа</label>
+                    <input asp-for="Номер_приказа" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label>Дата издания</label>
+                    <input asp-for="Дата_издания" type="date" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label>Тип приказа</label>
+                    <select asp-for="Тип_приказа" class="form-control">
+                        <option value="Приём">Приём</option>
+                        <option value="Перевод">Перевод</option>
+                        <option value="Увольнение">Увольнение</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Основание</label>
+                    <textarea asp-for="Основание" class="form-control" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Сотрудник</label>
+                    <select asp-for="Код_сотрудника" class="form-control" required>
+                        <option value="">-- Выберите сотрудника --</option>
+                        @if (сотрудники != null)
+                        {
+                            foreach (var с in сотрудники)
+                            {
+                                <option value="@с.Код_сотрудника">@с.Фамилия @с.Имя @с.Отчество</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-save"><i class="fas fa-save me-2"></i>Сохранить</button>
+        <a asp-action="Index" class="btn btn-back"><i class="fas fa-arrow-left me-2"></i>Назад</a>
+    </form>
+</div>

@@ -1,0 +1,24 @@
+﻿@model KadrySystem.Models.Должность
+
+@{
+    ViewData["Title"] = "Добавление должности";
+}
+
+<h1>Добавление должности</h1>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label>Наименование</label>
+        <input asp-for="Наименование" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Оклад</label>
+        <input asp-for="Оклад" class="form-control" type="number" step="0.01" required />
+    </div>
+    <div class="form-group">
+        <label>Квалификационные требования</label>
+        <textarea asp-for="Квалификационные_требования" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Сохранить</button>
+    <a asp-action="Index" class="btn btn-secondary">Назад</a>
+</form>

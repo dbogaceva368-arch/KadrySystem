@@ -1,0 +1,36 @@
+﻿@model IEnumerable<KadrySystem.Models.Должность>
+
+@{
+    ViewData["Title"] = "Должности";
+}
+
+<h1>Должности</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Добавить должность</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Наименование</th>
+            <th>Оклад</th>
+            <th>Квалификационные требования</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Наименование</td>
+                <td>@item.Оклад.ToString("C")</td>
+                <td>@item.Квалификационные_требования</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Код_должности">Редактировать</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Код_должности">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

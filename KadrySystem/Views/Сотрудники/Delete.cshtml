@@ -1,0 +1,31 @@
+﻿@model KadrySystem.Models.Сотрудник
+
+@{
+    ViewData["Title"] = "Удаление сотрудника";
+}
+
+<h1>Удаление сотрудника</h1>
+
+<h3>Вы уверены, что хотите удалить этого сотрудника?</h3>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">ФИО</dt>
+        <dd class="col-sm-10">@Model.Фамилия @Model.Имя @Model.Отчество</dd>
+
+        <dt class="col-sm-2">Должность</dt>
+        <dd class="col-sm-10">@Model.Должность?.Наименование</dd>
+
+        <dt class="col-sm-2">Подразделение</dt>
+        <dd class="col-sm-10">@Model.Подразделение?.Наименование</dd>
+
+        <dt class="col-sm-2">Дата приёма</dt>
+        <dd class="col-sm-10">@Model.Дата_приема.ToShortDateString()</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Код_сотрудника" />
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <a asp-action="Index" class="btn btn-secondary">Назад</a>
+    </form>
+</div>

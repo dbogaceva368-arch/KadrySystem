@@ -1,0 +1,43 @@
+﻿@model KadrySystem.Models.ШтатноеРасписание
+
+@{
+    ViewData["Title"] = "Редактирование позиции";
+    var должности = ViewBag.Должности as List<KadrySystem.Models.Должность>;
+}
+
+<div class="form-card">
+    <h1><i class="fas fa-edit me-2"></i>Редактирование позиции штатного расписания</h1>
+    <hr />
+    <form asp-action="Edit">
+        <input type="hidden" asp-for="Код_позиции" />
+        <div class="form-group">
+            <label>Должность</label>
+            <select asp-for="Код_должности" class="form-control" required>
+                <option value="">-- Выберите должность --</option>
+                @if (должности != null)
+                {
+                    foreach (var д in должности)
+                    {
+                        <option value="@д.Код_должности" selected="@(д.Код_должности == Model.Код_должности ? "selected" : null)">@д.Наименование</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Количество штатных единиц</label>
+                    <input asp-for="Количество_штатных_единиц" type="number" class="form-control" required />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Количество занятых ставок</label>
+                    <input asp-for="Количество_занятых_ставок" type="number" class="form-control" required />
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-save"><i class="fas fa-save me-2"></i>Сохранить</button>
+        <a asp-action="Index" class="btn btn-back"><i class="fas fa-arrow-left me-2"></i>Назад</a>
+    </form>
+</div>

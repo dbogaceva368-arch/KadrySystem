@@ -1,0 +1,49 @@
+﻿@model KadrySystem.Models.Сотрудник
+
+@{
+    ViewData["Title"] = "Подробности о сотруднике";
+}
+
+<h1>Подробности о сотруднике</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">ФИО</dt>
+        <dd class="col-sm-9">@Model.Фамилия @Model.Имя @Model.Отчество</dd>
+
+        <dt class="col-sm-3">Дата рождения</dt>
+        <dd class="col-sm-9">@Model.Дата_рождения.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Паспортные данные</dt>
+        <dd class="col-sm-9">@Model.Паспортные_данные</dd>
+
+        <dt class="col-sm-3">ИНН</dt>
+        <dd class="col-sm-9">@Model.ИНН</dd>
+
+        <dt class="col-sm-3">СНИЛС</dt>
+        <dd class="col-sm-9">@Model.СНИЛС</dd>
+
+        <dt class="col-sm-3">Телефон</dt>
+        <dd class="col-sm-9">@Model.Телефон</dd>
+
+        <dt class="col-sm-3">Адрес</dt>
+        <dd class="col-sm-9">@Model.Адрес_регистрации</dd>
+
+        <dt class="col-sm-3">Должность</dt>
+        <dd class="col-sm-9">@Model.Должность?.Наименование</dd>
+
+        <dt class="col-sm-3">Подразделение</dt>
+        <dd class="col-sm-9">@Model.Подразделение?.Наименование</dd>
+
+        <dt class="col-sm-3">Дата приёма</dt>
+        <dd class="col-sm-9">@Model.Дата_приема.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Дата увольнения</dt>
+        <dd class="col-sm-9">@(Model.Дата_увольнения?.ToShortDateString() ?? "—")</dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Код_сотрудника" class="btn btn-primary">Редактировать</a>
+    <a asp-action="Index" class="btn btn-secondary">Назад к списку</a>
+</div>

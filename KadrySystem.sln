@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36908.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KadrySystem", "KadrySystem\KadrySystem.csproj", "{0FFDF137-46F9-4A1B-A730-99AA3D78E777}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FFDF137-46F9-4A1B-A730-99AA3D78E777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FFDF137-46F9-4A1B-A730-99AA3D78E777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FFDF137-46F9-4A1B-A730-99AA3D78E777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FFDF137-46F9-4A1B-A730-99AA3D78E777}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D6DDABF-96C5-443E-A049-24B11FE01905}
+	EndGlobalSection
+EndGlobal

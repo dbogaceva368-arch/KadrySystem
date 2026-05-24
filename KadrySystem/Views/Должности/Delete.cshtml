@@ -1,0 +1,22 @@
+﻿@model KadrySystem.Models.Должность
+
+@{
+    ViewData["Title"] = "Удаление должности";
+}
+
+<h1>Удаление должности</h1>
+
+<h3>Вы уверены?</h3>
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Наименование</dt>
+        <dd class="col-sm-10">@Model.Наименование</dd>
+        <dt class="col-sm-2">Оклад</dt>
+        <dd class="col-sm-10">@Model.Оклад.ToString("C")</dd>
+    </dl>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Код_должности" />
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <a asp-action="Index" class="btn btn-secondary">Назад</a>
+    </form>
+</div>

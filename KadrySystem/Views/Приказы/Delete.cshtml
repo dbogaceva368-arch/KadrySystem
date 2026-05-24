@@ -1,0 +1,25 @@
+﻿@model KadrySystem.Models.Приказ
+
+@{
+    ViewData["Title"] = "Удаление приказа";
+}
+
+<div class="form-card">
+    <h1><i class="fas fa-trash-alt me-2" style="color:#e74c3c"></i>Удаление приказа</h1>
+    <hr />
+    <h3>Вы уверены, что хотите удалить этот приказ?</h3>
+    <div class="table-container mt-3">
+        <table class="table">
+            <tr><th>Номер</th><td>@Model.Номер_приказа</td></tr>
+            <tr><th>Дата</th><td>@Model.Дата_издания.ToString("dd.MM.yyyy")</td></tr>
+            <tr><th>Тип</th><td>@Model.Тип_приказа</td></tr>
+            <tr><th>Основание</th><td>@Model.Основание</td></tr>
+            <tr><th>Сотрудник</th><td>@Model.Сотрудник?.Фамилия @Model.Сотрудник?.Имя</td></tr>
+        </table>
+    </div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Код_приказа" />
+        <button type="submit" class="btn btn-danger"><i class="fas fa-trash me-2"></i>Удалить</button>
+        <a asp-action="Index" class="btn btn-back"><i class="fas fa-arrow-left me-2"></i>Назад</a>
+    </form>
+</div>

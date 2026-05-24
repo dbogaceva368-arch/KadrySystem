@@ -1,0 +1,73 @@
+﻿@model KadrySystem.Models.Сотрудник
+
+@{
+    ViewData["Title"] = "Редактирование сотрудника";
+}
+
+<h1>Редактирование сотрудника</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Код_сотрудника" />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Фамилия</label>
+                <input asp-for="Фамилия" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label>Имя</label>
+                <input asp-for="Имя" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label>Отчество</label>
+                <input asp-for="Отчество" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Дата рождения</label>
+                <input asp-for="Дата_рождения" type="date" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label>Паспортные данные</label>
+                <input asp-for="Паспортные_данные" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label>ИНН</label>
+                <input asp-for="ИНН" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label>СНИЛС</label>
+                <input asp-for="СНИЛС" class="form-control" required />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Телефон</label>
+                <input asp-for="Телефон" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Адрес регистрации</label>
+                <input asp-for="Адрес_регистрации" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label>Дата приёма</label>
+                <input asp-for="Дата_приема" type="date" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label>Дата увольнения</label>
+                <input asp-for="Дата_увольнения" type="date" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Должность</label>
+                <select asp-for="Код_должности" class="form-control" asp-items="ViewBag.Должности as SelectList"></select>
+            </div>
+            <div class="form-group">
+                <label>Подразделение</label>
+                <select asp-for="Код_подразделения" class="form-control" asp-items="ViewBag.Подразделения as SelectList"></select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group mt-3">
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+        <a asp-action="Index" class="btn btn-secondary">Назад</a>
+    </div>
+</form>
