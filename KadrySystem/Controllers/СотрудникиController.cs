@@ -1,10 +1,12 @@
 ﻿using KadrySystem.Data;
 using KadrySystem.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace KadrySystem.Controllers
 {
+    [Authorize(Roles = "Кадровик,Администратор")]
     public class СотрудникиController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -15,13 +17,24 @@ namespace KadrySystem.Controllers
         }
 
         // GET: Сотрудники
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
             var сотрудники = _context.Сотрудники
                 .Include(s => s.Должность)
-                .Include(s => s.Подразделение);
+                .Include(s => s.Подразделение)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                сотрудники = сотрудники.Where(s => s.Фамилия.Contains(searchString)
+                    || s.Имя.Contains(searchString)
+                    || (s.Отчество != null && s.Отчество.Contains(searchString)));
+            }
+
+            ViewBag.CurrentFilter = searchString;
             return View(await сотрудники.ToListAsync());
         }
+
 
         // GET: Сотрудники/Details/5
         public async Task<IActionResult> Details(int? id)

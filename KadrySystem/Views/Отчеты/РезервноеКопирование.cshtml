@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Резервное копирование";
+}
+
+<h1>Резервное копирование</h1>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+
+<div class="card">
+    <div class="card-body">
+        <p>Нажмите кнопку для создания резервной копии базы данных.</p>
+        <form asp-action="СоздатьРезервнуюКопию" method="post">
+            <button type="submit" class="btn btn-warning">Создать резервную копию</button>
+        </form>
+    </div>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary mt-3">Назад к отчетам</a>

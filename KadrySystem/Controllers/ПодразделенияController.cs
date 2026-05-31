@@ -1,10 +1,13 @@
 ﻿using KadrySystem.Data;
 using KadrySystem.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace KadrySystem.Controllers
+
 {
+    [Authorize(Roles = "Кадровик,Администратор")]
     public class ПодразделенияController : Controller
     {
         private readonly ApplicationDbContext _context;

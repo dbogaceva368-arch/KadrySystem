@@ -1,0 +1,33 @@
+﻿@model IEnumerable<KadrySystem.Models.Приказ>
+
+@{
+    ViewData["Title"] = "Отчет по приказам";
+}
+
+<h1>Отчет по приказам</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Номер</th>
+            <th>Дата</th>
+            <th>Тип</th>
+            <th>Основание</th>
+            <th>Сотрудник</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Номер_приказа</td>
+                <td>@item.Дата_издания.ToString("dd.MM.yyyy")</td>
+                <td>@item.Тип_приказа</td>
+                <td>@item.Основание</td>
+                <td>@item.Сотрудник?.Фамилия</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index" class="btn btn-secondary">Назад к отчетам</a>

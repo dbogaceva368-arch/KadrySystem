@@ -1,0 +1,31 @@
+﻿@model IEnumerable<KadrySystem.Models.ШтатноеРасписание>
+
+@{
+    ViewData["Title"] = "Отчет по штатному расписанию";
+}
+
+<h1>Отчет по штатному расписанию</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Должность</th>
+            <th>Штатных единиц</th>
+            <th>Занятых ставок</th>
+            <th>Вакансий</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Должность?.Наименование</td>
+                <td>@item.Количество_штатных_единиц</td>
+                <td>@item.Количество_занятых_ставок</td>
+                <td>@(item.Количество_штатных_единиц - item.Количество_занятых_ставок)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index" class="btn btn-secondary">Назад к отчетам</a>
